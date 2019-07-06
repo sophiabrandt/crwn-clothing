@@ -10,6 +10,7 @@ This repo mirrors my learning progress - code is © [Yihua Zhang](https://github
 **Built with**  
 
 - React
+- Redux
 
 ## Usage
 
