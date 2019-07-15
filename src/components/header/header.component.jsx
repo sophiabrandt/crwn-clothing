@@ -13,8 +13,8 @@ import { ReactComponent as Logo } from '../../assets/crown.svg'
 import {
   HeaderContainer,
   LogoContainer,
-  OptionLink,
-  OptionsContainer
+  OptionsContainer,
+  OptionLink
 } from './header.styles'
 
 const Header = ({ currentUser, hidden }) => (

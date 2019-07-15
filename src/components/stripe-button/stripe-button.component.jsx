@@ -1,19 +1,21 @@
 import React from 'react'
 import StripeCheckout from 'react-stripe-checkout'
 
+import CustomButton from '../custom-button/custom-button.component'
+
 const StripeCheckoutButton = ({ price }) => {
   const priceForStripe = price * 100
-  const publishableKey = process.env.REACT_APP_STRIPE_PK
+  const publishableKey = 'pk_test_WBqax2FWVzS9QlpJScO07iuL'
 
   const onToken = token => {
-    console.log({ token })
-    alert('Payment successful')
+    console.log(token)
+    alert('Payment Succesful!')
   }
 
   return (
     <StripeCheckout
       label='Pay Now'
-      name='CRN Clothing'
+      name='CRWN Clothing Ltd.'
       billingAddress
       shippingAddress
       image='https://svgshare.com/i/CUz.svg'
@@ -22,7 +24,9 @@ const StripeCheckoutButton = ({ price }) => {
       panelLabel='Pay Now'
       token={onToken}
       stripeKey={publishableKey}
-    />
+    >
+      <CustomButton blue>Pay Now</CustomButton>
+    </StripeCheckout>
   )
 }
 
