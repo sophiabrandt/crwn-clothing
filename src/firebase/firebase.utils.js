@@ -69,4 +69,23 @@ export const addCollectionAndDocuments = async (
   return await batch.commit()
 }
 
+// convert the collection data that got pulled from firestore to include routes and correct key
+export const convertCollectionsSnapshotToMap = collections => {
+  const transformedCollection = collections.docs.map(doc => {
+    const { title, items } = doc.data()
+
+    return {
+      routeName: encodeURI(title.toLowerCase()),
+      id: doc.id,
+      title,
+      items
+    }
+  })
+
+  return transformedCollection.reduce((acc, collection) => {
+    acc[collection.title.toLowerCase()] = collection
+    return acc
+  }, {})
+}
+
 export default firebase
