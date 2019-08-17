@@ -8,7 +8,7 @@ const config = {
   authDomain: 'crn-clothing-db.firebaseapp.com',
   databaseURL: 'https://crn-clothing-db.firebaseio.com',
   projectId: 'crn-clothing-db',
-  storageBucket: '',
+  storageBucket: 'crn-clothing-db.appspot.com',
   messagingSenderId: '434451661983',
   appId: '1:434451661983:web:28d250feec82fd28'
 }
