@@ -11,6 +11,7 @@ This repo mirrors my learning progress - code is © [Yihua Zhang](https://github
 
 - React
 - Redux & reselect
+- redux-saga
 - Stripe
 
 ## Usage
