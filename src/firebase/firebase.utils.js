@@ -20,11 +20,11 @@ export const auth = firebase.auth()
 export const firestore = firebase.firestore()
 
 // Setup Signin with Google
-const provider = new firebase.auth.GoogleAuthProvider()
-provider.setCustomParameters({ prompt: 'select_account' })
-provider.addScope('profile')
-provider.addScope('email')
-export const signInWithGoogle = () => auth.signInWithPopup(provider)
+export const googleProvider = new firebase.auth.GoogleAuthProvider()
+googleProvider.setCustomParameters({ prompt: 'select_account' })
+googleProvider.addScope('profile')
+googleProvider.addScope('email')
+export const signInWithGoogle = () => auth.signInWithPopup(googleProvider)
 
 // Create User
 export const createUserProfileDocument = async (userAuth, additionalData) => {
