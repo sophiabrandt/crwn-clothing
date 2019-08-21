@@ -66,7 +66,7 @@ export const addCollectionAndDocuments = async (
     batch.set(newDocRef, obj)
   })
 
-  return await batch.commit()
+  return batch.commit()
 }
 
 // convert the collection data that got pulled from firestore to include routes and correct key
@@ -86,6 +86,16 @@ export const convertCollectionsSnapshotToMap = collections => {
     acc[collection.title.toLowerCase()] = collection
     return acc
   }, {})
+}
+
+// convert firebase promised-based API, so it can be used in redux saga with async/await generators
+export const getCurrentUser = () => {
+  return new Promise((resolve, reject) => {
+    const unsubscribe = auth.onAuthStateChanged(userAuth => {
+      unsubscribe()
+      resolve(userAuth)
+    }, reject)
+  })
 }
 
 export default firebase
