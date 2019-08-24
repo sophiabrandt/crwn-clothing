@@ -1,4 +1,5 @@
 # crn-clothing
+
 > a React learning project building an e-commerce store
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -7,7 +8,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 This repo mirrors my learning progress - code is © [Yihua Zhang](https://github.com/ZhangMYihua).
 
-**Built with**  
+**Built with**
 
 - React
 - Redux & reselect
@@ -19,17 +20,16 @@ This repo mirrors my learning progress - code is © [Yihua Zhang](https://github
 Clone the repo and install dependencies:
 
 ```
-yarn add
+sh -c '(yarn install && cd client && yarn install)'
 ```
 
 Run the development server:
+
 ```
-yarn start
+yarn dev
 ```
 
 ## Credits
 
 - Andrei Neagoie
 - Yihua Zhang
-
-
