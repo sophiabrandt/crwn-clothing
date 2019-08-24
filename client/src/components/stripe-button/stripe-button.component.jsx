@@ -1,15 +1,27 @@
 import React from 'react'
 import StripeCheckout from 'react-stripe-checkout'
+import axios from 'axios'
 
 import CustomButton from '../custom-button/custom-button.component'
 
 const StripeCheckoutButton = ({ price }) => {
   const priceForStripe = price * 100
-  const publishableKey = 'pk_test_WBqax2FWVzS9QlpJScO07iuL'
+  const publishableKey = 'pk_test_nY7cLOmQWLKhsAq7bctsmJc900AnBWjeV0'
 
-  const onToken = token => {
-    console.log(token)
-    alert('Payment Succesful!')
+  const onToken = async token => {
+    try {
+      const res = await axios({
+        url: 'payment',
+        method: 'post',
+        data: { amount: priceForStripe, token }
+      })
+      if (res.status === 200) {
+        window.alert('Payment successful')
+      }
+    } catch (err) {
+      console.error(err)
+      window.alert('There was an issue with your payment.')
+    }
   }
 
   return (
