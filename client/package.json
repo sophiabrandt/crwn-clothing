@@ -24,7 +24,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "format": "prettier-eslint --write 'src/**/*.js*' --config '.prettierrc.json' --eslint-config-path '.eslintrc.json'"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -44,6 +45,7 @@
   "devDependencies": {
     "eslint-config-prettier": "^6.1.0",
     "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.14.3",
     "prettier": "^1.18.2",
     "prettier-eslint": "^9.0.0",
     "prettier-eslint-cli": "^5.0.0"
