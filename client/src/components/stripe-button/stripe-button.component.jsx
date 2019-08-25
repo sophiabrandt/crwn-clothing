@@ -13,7 +13,7 @@ const StripeCheckoutButton = ({ price }) => {
       const res = await axios({
         url: 'payment',
         method: 'post',
-        data: { amount: priceForStripe, token }
+        data: { amount: priceForStripe, token },
       })
       if (res.status === 200) {
         window.alert('Payment successful')
@@ -26,14 +26,14 @@ const StripeCheckoutButton = ({ price }) => {
 
   return (
     <StripeCheckout
-      label='Pay Now'
-      name='CRWN Clothing Ltd.'
+      label="Pay Now"
+      name="CRWN Clothing Ltd."
       billingAddress
       shippingAddress
-      image='https://svgshare.com/i/CUz.svg'
+      image="https://svgshare.com/i/CUz.svg"
       description={`Your total is $${price}`}
       amount={priceForStripe}
-      panelLabel='Pay Now'
+      panelLabel="Pay Now"
       token={onToken}
       stripeKey={publishableKey}
     >

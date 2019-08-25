@@ -8,17 +8,17 @@ import {
   signOutSuccess,
   signOutFailure,
   signUpSuccess,
-  signUpFailure
+  signUpFailure,
 } from './user.actions'
 
 import {
   auth,
   googleProvider,
   createUserProfileDocument,
-  getCurrentUser
+  getCurrentUser,
 } from '../../firebase/firebase.utils'
 
-export function * getSnapshotFromUserAuth (userAuth, additionalData) {
+export function* getSnapshotFromUserAuth(userAuth, additionalData) {
   try {
     const userRef = yield call(
       createUserProfileDocument,
@@ -32,7 +32,7 @@ export function * getSnapshotFromUserAuth (userAuth, additionalData) {
   }
 }
 
-export function * signInWithGoogle () {
+export function* signInWithGoogle() {
   try {
     const { user } = yield auth.signInWithPopup(googleProvider)
     yield getSnapshotFromUserAuth(user)
@@ -41,7 +41,7 @@ export function * signInWithGoogle () {
   }
 }
 
-export function * signInWithEmail ({ payload: { email, password } }) {
+export function* signInWithEmail({ payload: { email, password } }) {
   try {
     const { user } = yield auth.signInWithEmailAndPassword(email, password)
     yield getSnapshotFromUserAuth(user)
@@ -50,7 +50,7 @@ export function * signInWithEmail ({ payload: { email, password } }) {
   }
 }
 
-export function * isUserAuthenticated () {
+export function* isUserAuthenticated() {
   try {
     const userAuth = yield getCurrentUser()
     if (!userAuth) return
@@ -60,7 +60,7 @@ export function * isUserAuthenticated () {
   }
 }
 
-export function * signOut () {
+export function* signOut() {
   try {
     yield auth.signOut()
     yield put(signOutSuccess())
@@ -69,14 +69,14 @@ export function * signOut () {
   }
 }
 
-export function * signUp ({ payload: { email, password, displayName } }) {
+export function* signUp({ payload: { email, password, displayName } }) {
   try {
     const { user } = yield auth.createUserWithEmailAndPassword(email, password)
 
     yield put(
       signUpSuccess({
         user,
-        additionalData: { displayName }
+        additionalData: { displayName },
       })
     )
   } catch (error) {
@@ -84,41 +84,41 @@ export function * signUp ({ payload: { email, password, displayName } }) {
   }
 }
 
-export function * signInAfterSignUp ({ payload: { user, additionalData } }) {
+export function* signInAfterSignUp({ payload: { user, additionalData } }) {
   yield getSnapshotFromUserAuth(user, additionalData)
 }
 
-export function * onGoogleSignInStart () {
+export function* onGoogleSignInStart() {
   yield takeLatest(UserActionTypes.GOOGLE_SIGN_IN_START, signInWithGoogle)
 }
 
-export function * onEmailSignInStart () {
+export function* onEmailSignInStart() {
   yield takeLatest(UserActionTypes.EMAIL_SIGN_IN_START, signInWithEmail)
 }
 
-export function * onCheckUserSession () {
+export function* onCheckUserSession() {
   yield takeLatest(UserActionTypes.CHECK_USER_SESSION, isUserAuthenticated)
 }
 
-export function * onSignOutStart () {
+export function* onSignOutStart() {
   yield takeLatest(UserActionTypes.SIGN_OUT_START, signOut)
 }
 
-export function * onSignUpStart () {
+export function* onSignUpStart() {
   yield takeLatest(UserActionTypes.SIGN_UP_START, signUp)
 }
 
-export function * onSignUpSuccess () {
+export function* onSignUpSuccess() {
   yield takeLatest(UserActionTypes.SIGN_UP_SUCCESS, signInAfterSignUp)
 }
 
-export function * userSagas () {
+export function* userSagas() {
   yield all([
     call(onGoogleSignInStart),
     call(onEmailSignInStart),
     call(isUserAuthenticated),
     call(onSignOutStart),
     call(onSignUpStart),
-    call(onSignUpSuccess)
+    call(onSignUpSuccess),
   ])
 }

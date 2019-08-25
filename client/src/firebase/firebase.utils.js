@@ -10,7 +10,7 @@ const config = {
   projectId: 'crn-clothing-db',
   storageBucket: 'crn-clothing-db.appspot.com',
   messagingSenderId: '434451661983',
-  appId: '1:434451661983:web:28d250feec82fd28'
+  appId: '1:434451661983:web:28d250feec82fd28',
 }
 
 // Initialize Firebase
@@ -42,7 +42,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
         displayName,
         email,
         createdAt,
-        ...additionalData
+        ...additionalData,
       })
     } catch (error) {
       console.log('error creating user', error.message)
@@ -78,7 +78,7 @@ export const convertCollectionsSnapshotToMap = collections => {
       routeName: encodeURI(title.toLowerCase()),
       id: doc.id,
       title,
-      items
+      items,
     }
   })
 
