@@ -2,8 +2,8 @@
   "name": "crwn-clothing-server",
   "version": "1.0.0",
   "engines": {
-    "node": "11.15.0",
-    "npm": "6.11.1"
+    "node": "12.9.1",
+    "npm": "6.11.3"
   },
   "scripts": {
     "client": "cd client && yarn start",
@@ -11,8 +11,7 @@
     "build": "cd client && npm run build",
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
     "start": "node server.js",
-    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
-    "format": "prettier-eslint --write 'src/**/*.js*' --config '../.prettierrc.json' --eslint-config-path '../.eslintrc.json'"
+    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
