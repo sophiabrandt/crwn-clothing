@@ -1,4 +1,4 @@
-# crn-clothing
+# crwn-clothing
 
 > a React learning project building an e-commerce store
 
