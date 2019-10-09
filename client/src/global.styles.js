@@ -1,85 +1,31 @@
 import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
-  /*! minireset.css v0.0.5 | MIT License | github.com/jgthms/minireset.css */
-  html,
-  body,
-  p,
-  ol,
-  ul,
-  li,
-  dl,
-  dt,
-  dd,
-  blockquote,
-  figure,
-  fieldset,
-  legend,
-  textarea,
-  pre,
-  iframe,
-  hr,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin: 0;
-    padding: 0;
-  }
+  /* dark color scheme */
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #444;
+      color: #e4e4e4;
+      }
+    a {
+      color: #e4e4e4;
+      }
+    img {
+      filter: grayscale(30%);
+      }
+    }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-size: 100%;
-    font-weight: normal;
-  }
+  /* light color scheme */
+  @media (prefers-color-scheme: light) {
+    body {
+      color: #444;
+      }
+    a {
+      color: black;
+      }
+    }
 
-  ul {
-    list-style: none;
-  }
-
-  button,
-  input,
-  select,
-  textarea {
-    margin: 0;
-  }
-
-  html {
-    box-sizing: border-box;
-  }
-
-  *, *:before, *:after {
-    box-sizing: inherit;
-  }
-
-  img,
-  video {
-    height: auto;
-    max-width: 100%;
-  }
-
-  iframe {
-    border: 0;
-  }
-
-  table {
-    border-collapse: collapse;
-    border-spacing: 0;
-  }
-
-  td,
-  th {
-    padding: 0;
-    text-align: left;
-  }
-
-  /* custom styles here */
+  /* common styles */
   body {
     font-family: 'Open Sans Condensed', sans-serif;
     padding: 20px 60px
@@ -91,7 +37,6 @@ export const GlobalStyle = createGlobalStyle`
 
   a {
     text-decoration: none;
-    color: black;
     cursor: pointer;
   }
 `
