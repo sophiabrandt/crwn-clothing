@@ -23,9 +23,11 @@ client/.DS_Store
 client/.env
 
 npm-debug.log*
+pnpm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 client/npm-debug.log*
+client/pnpm-debug.log*
 client/yarn-debug.log*
 client/yarn-error.log*
 
