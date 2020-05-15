@@ -31,6 +31,18 @@ sh -c '(pnpm install && cd client && pnpm install)'
 # or:  sh -c '(npm install && cd client && npm install)'
 ```
 
+You need the Stripe secret key (test key is enough). Create a new file `.env` in the main directory:
+```
+# ./.env
+STRIPE_SECRET_KEY=sk_test_<your-key>
+```
+
+For the client, you need the Stripe public key. Add a new file `./client/.env`:
+```
+# ./client/.env
+REACT_APP_STRIPE_PK=pk_test_<your-key>
+```
+
 Run the development server:
 
 ```sh
