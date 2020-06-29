@@ -4,10 +4,10 @@ dependencies:
   cors: 2.8.5
   dotenv: 8.2.0
   express: 4.17.1
-  stripe: 8.52.0
+  stripe: 8.67.0
 devDependencies:
   concurrently: 5.2.0
-  nodemon: 2.0.3
+  nodemon: 2.0.4
 lockfileVersion: 5.1
 packages:
   /@sindresorhus/is/0.14.0:
@@ -928,7 +928,7 @@ packages:
       node: '>= 0.6'
     resolution:
       integrity: sha512-hZXc7K2e+PgeI1eDBe/10Ard4ekbfrrqG8Ep+8Jmf4JID2bNg7NvCPOZN+kfF574pFQI7mum2AUqDidoKqcTOw==
-  /nodemon/2.0.3:
+  /nodemon/2.0.4:
     dependencies:
       chokidar: 3.4.0
       debug: 3.2.6
@@ -946,7 +946,7 @@ packages:
     hasBin: true
     requiresBuild: true
     resolution:
-      integrity: sha512-lLQLPS90Lqwc99IHe0U94rDgvjo+G9I4uEIxRG3evSLROcqQ9hwc0AxlSHKS4T1JW/IMj/7N5mthiN58NL/5kw==
+      integrity: sha512-Ltced+hIfTmaS28Zjv1BM552oQ3dbwPqI4+zI0SLgq+wpJhSyqgYude/aZa/3i31VCQWMfXJVxvu86abcam3uQ==
   /nopt/1.0.10:
     dependencies:
       abbrev: 1.1.1
@@ -1361,7 +1361,7 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-PFMZQukIwml8DsNEhYwobHygpgo=
-  /stripe/8.52.0:
+  /stripe/8.67.0:
     dependencies:
       '@types/node': 14.0.1
       qs: 6.9.4
@@ -1369,7 +1369,7 @@ packages:
     engines:
       node: ^8.1 || >=10.*
     resolution:
-      integrity: sha512-3Olq0EYmNU2aQ5j6rinWxfoRzaYW83k8wgNImmF9HgKi+SR85lplncO8sEq1jju5AnHzx2DO0/tJSic8jQ9PCQ==
+      integrity: sha512-MncFtlNtMPYlian/Za7jgPeC7YJegZjWkfdxcSC5DCgZLO69/za6ORI2M3dwZ50tfqh6BCYkRIcsrK5vkpSUHQ==
   /supports-color/5.5.0:
     dependencies:
       has-flag: 3.0.0
@@ -1598,5 +1598,5 @@ specifiers:
   cors: 2.8.5
   dotenv: 8.2.0
   express: ^4.17.1
-  nodemon: ^2.0.3
-  stripe: 8.52.0
+  nodemon: ^2.0.4
+  stripe: 8.67.0
