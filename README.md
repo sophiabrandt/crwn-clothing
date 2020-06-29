@@ -32,22 +32,38 @@ sh -c '(pnpm install && cd client && pnpm install)'
 ```
 
 You need the Stripe secret key (test key is enough). Create a new file `.env` in the main directory:
+
 ```
 # ./.env
 STRIPE_SECRET_KEY=sk_test_<your-key>
 ```
 
 For the client, you need the Stripe public key. Add a new file `./client/.env`:
+
 ```
 # ./client/.env
 REACT_APP_STRIPE_PK=pk_test_<your-key>
 ```
+
+### Development
 
 Run the development server:
 
 ```sh
 pnpm run dev
 # or: npm run dev
+```
+
+### Deployment to Heroku
+
+Create a new Heroku application.
+
+Set environment variable with `REACT_APP_STRIPE_PK`, `STRIPE_SECRET_KEY`.
+
+[Deploy with Git](https://devcenter.heroku.com/articles/git):
+
+```bash
+git push heroku master
 ```
 
 ## Acknowledgements
